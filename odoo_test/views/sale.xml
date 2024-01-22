@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record id="view_order_form_add_fields" model="ir.ui.view">
+            <field name="name">sale.order.form.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//form/sheet/group/group/field[@name='partner_shipping_id']" position="after">
+                    <field name="split_delivery"/>
+                </xpath>
+                <xpath expr="//form/sheet/group/group[@name='order_details']/field[@name='payment_term_id']" position="after">
+                    <field name="delivery_date"/>
+                </xpath>
+                <xpath expr="//notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='product_uom_qty']" position="before">
+                    <field name="planned_date"/>
+                </xpath>
+               
+            </field>
+        </record>
+</odoo>
